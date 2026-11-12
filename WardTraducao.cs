@@ -8,7 +8,7 @@ using BepInEx;
 using HarmonyLib;
 using Newtonsoft.Json;
 
-[BepInPlugin("br.codex.wardislove.traducao", "WardIsLove GUI Translator", "1.0.0")]
+[BepInPlugin("com.dorn.wardislove.guitranslator", "WardIsLove GUI Translator", "1.0.0")]
 [BepInDependency("Azumatt.WardIsLove", BepInDependency.DependencyFlags.HardDependency)]
 public class WardTraducao : BaseUnityPlugin
 {
@@ -120,7 +120,7 @@ public class WardTraducao : BaseUnityPlugin
         }
         Type type = AccessTools.TypeByName("WardIsLove.Util.UI.WardControlWindow");
         if (type == null) { Logger.LogError("Janela da Ward não encontrada; confira a versão do WardIsLove."); return; }
-        Harmony harmony = new Harmony("br.codex.wardislove.traducao");
+        Harmony harmony = new Harmony("com.dorn.wardislove.guitranslator");
         MethodInfo transpiler = AccessTools.Method(typeof(WardTraducao), "Traduzir");
         int count = 0;
         PatchType(type, harmony, transpiler, ref count);
